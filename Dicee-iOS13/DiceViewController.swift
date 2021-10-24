@@ -11,11 +11,9 @@ import UIKit
 class DiceViewController: UIViewController {
 //    MARK: - ENUM CONSTANTSVIEWCONTROLLER
     enum ConstantsViewController {
-        static let diceImage = #imageLiteral(resourceName: "DiceSix")
+        static let diceArray = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
         static let alphaRollButton = 0.8
         static let cornerRadiusRollButton = 10
-        static let diceImage2 = #imageLiteral(resourceName: "DiceTwo")
-        static let diceImage4 = #imageLiteral(resourceName: "DiceFour")
     }
 //    MARK: - IBOUTLETS
     @IBOutlet weak var diceImageView1: UIImageView!
@@ -23,30 +21,21 @@ class DiceViewController: UIViewController {
     @IBOutlet weak var rollButton: UIButton!
 //    MARK: -
     @IBAction func rollButtonPressed(_ sender: UIButton) {
-        changeUIDiceFour()
+        changeDiceArray()
     }
     //    MARK: - VIEWDIDLOAD FUNC
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeUIDiceOne()
         changeUIRollButton()
-        changeUIDiceTwo()
     }
-//    MARK: - CHANGEUIDICEONE FUNC
-    func changeUIDiceOne() {
-        diceImageView1.image = ConstantsViewController.diceImage
+//    MARK: - CHANGEDICEARRAY FUNC
+    func changeDiceArray() {
+        diceImageView1.image = ConstantsViewController.diceArray [Int.random(in: 0...5)]
+        diceImageView2.image = ConstantsViewController.diceArray[Int.random(in: 0...5)]
     }
 //    MARK: - CHANGEUIROLLBUTTON FUNC
     func changeUIRollButton() {
         rollButton.alpha = CGFloat(ConstantsViewController.alphaRollButton)
         rollButton.layer.cornerRadius = CGFloat(ConstantsViewController.cornerRadiusRollButton)
-    }
-//    MARK: - CHANGEUIDICETWO FUNC
-    func changeUIDiceTwo() {
-        diceImageView2.image = ConstantsViewController.diceImage2
-    }
-    func changeUIDiceFour() {
-        diceImageView1.image = ConstantsViewController.diceImage4
-        diceImageView2.image = ConstantsViewController.diceImage4
     }
 }
