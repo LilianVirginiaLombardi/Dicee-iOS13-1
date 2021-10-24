@@ -23,15 +23,15 @@ class DiceViewController: UIViewController {
     @IBAction func rollButtonPressed(_ sender: UIButton) {
         changeDiceArray()
     }
-    //    MARK: - VIEWDIDLOAD FUNC
+//    MARK: - VIEWDIDLOAD FUNC
     override func viewDidLoad() {
         super.viewDidLoad()
         changeUIRollButton()
     }
 //    MARK: - CHANGEDICEARRAY FUNC
     func changeDiceArray() {
-        diceImageView1.image = ConstantsViewController.diceArray [Int.random(in: 0...5)]
-        diceImageView2.image = ConstantsViewController.diceArray[Int.random(in: 0...5)]
+        diceImageView1.image = ConstantsViewController.diceArray [Int.random(in: 0...5)] //or we could write: ConstantsViewController.diceArray.randomElement() and this will have the same behavior
+        diceImageView2.image = ConstantsViewController.diceArray[Int.random(in: 0...5)] //or we could write: ConstantsViewController.diceArray.randomElement() and this will have the same behavior
     }
 //    MARK: - CHANGEUIROLLBUTTON FUNC
     func changeUIRollButton() {
